@@ -11,12 +11,13 @@ class Entertainment(commands.Cog):
     self.bot = bot
 
 
-    #Avatar
-    @bot.command(aliases=["av"])
-    async def Avatar(self, ctx,*, member : discord.Member=None):
-        useravatar = member.avatar_url
-        embed = discord.Embed(Colour = discord.Colour.orange(), title = f"Avatar for {member}", url = useravatar)
-        embed.set_image(url = f"{useravatar}")
+  #Avatar
+  @bot.command(aliases=["av"])
+  async def Avatar(self, ctx,*, member : discord.Member=None):
+      useravatar = member.avatar_url
+      embed = discord.Embed(Colour = discord.Colour.orange(), title = f"Avatar for {member}", url = useravatar)
+      embed.set_image(url = f"{useravatar}")
+      await ctx.send(embed=embed)
 
 
   #8Ball
