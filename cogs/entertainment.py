@@ -4,7 +4,10 @@ from discord.ext import commands
 import random
 
 
+
 bot = commands.Bot(command_prefix="$")
+
+
 
 class Entertainment(commands.Cog):
   def __init__(self, bot):
@@ -22,6 +25,7 @@ class Entertainment(commands.Cog):
       embed = discord.Embed(Colour = discord.Colour.orange(), title = f"Avatar for {member}", url = useravatar)
       embed.set_image(url = f"{useravatar}")
       await ctx.send(embed=embed)
+
 
   #8Ball
   @bot.command(aliases=['8ball', '8b'])
@@ -52,6 +56,7 @@ class Entertainment(commands.Cog):
   async def _8ball_error(self, ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
       await ctx.send('Please ask a question.')
+
 
 
 def setup(bot):

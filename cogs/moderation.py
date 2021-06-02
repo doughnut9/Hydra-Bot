@@ -5,12 +5,17 @@ from discord.utils import get
 from discord.ext.commands import CheckFailure
 from discord.ext.commands import MissingPermissions
 
+
+
 bot = commands.Bot(command_prefix="$")
+
 
 
 class Moderation(commands.Cog):
   def __init__(self, bot):
     self.bot=bot
+
+
 
   #Mute
   @bot.command()
@@ -18,7 +23,6 @@ class Moderation(commands.Cog):
   async def mute(self, ctx, member: discord.Member, *, reason=None):
     guild = ctx.guild
     mutedRole = discord.utils.get(guild.roles, name="Muted")
-
     if not mutedRole:
         mutedRole = await guild.create_role(name="Muted")
 
@@ -46,7 +50,8 @@ class Moderation(commands.Cog):
     if isinstance (error, commands.MissingPermissions):
       await ctx.send('Aha comrade, that one is not for you.')
 
-  
+
+
   #purge
   @bot.command(aliases=["clean", "delete", "p"])
   @commands.has_permissions(manage_messages=True)
@@ -63,6 +68,8 @@ class Moderation(commands.Cog):
       await ctx.send('Please tell number of messages to be deleted.')
     if isinstance (error, commands.MissingPermissions):
       await ctx.send('Aha comrade, that one is not for you.')
+
+
 
   #kick
   @bot.command(aliases=["k"])
@@ -89,11 +96,11 @@ class Moderation(commands.Cog):
 
     for ban_entry in banned_users:
       user=ban_entry.user
-    
+
       if (user.name, user.discriminator) == (member_name, member_discriminator):
         await ctx.guild.unban(user)
         await ctx.send(f'Unbanned {user.name}#{user.discriminator}')
-        return   
+        return
 
   @unban.error
   async def unban_error(self, ctx, error):
@@ -101,6 +108,8 @@ class Moderation(commands.Cog):
       await ctx.send('Please mention the user to be unbanned.')
     if isinstance (error, commands.MissingPermissions):
       await ctx.send('Aha comrade, that one is not for you.')
+
+
 
 def setup(bot):
   bot.add_cog(Moderation(bot))
