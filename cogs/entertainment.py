@@ -9,7 +9,13 @@ bot = commands.Bot(command_prefix="$")
 class Entertainment(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
-    
+
+
+    #Avatar
+    @bot.command(aliases=["av"])
+    async def Avatar(self, ctx,*, member : discord.Member):
+
+
 
   #8Ball
   @bot.command(aliases=['8ball', '8b'])
@@ -40,14 +46,6 @@ class Entertainment(commands.Cog):
   async def _8ball_error(self, ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
       await ctx.send('Please ask a question.')
-
-
-
-
-
-  #coinflip
-  #@bot.command()
-  #async def coinflip(ctx, choice):
 
 
 def setup(bot):
