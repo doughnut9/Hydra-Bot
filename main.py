@@ -7,11 +7,13 @@ from discord.ext.commands import MissingPermissions
 import random
 from alive import alive
 
+intents = discord.Intents.all()
+intents.members = True
 
-bot = commands.Bot(command_prefix="$")
+
+bot = commands.Bot(command_prefix="$", intents=intents)
 bot.remove_command('help')
 my_secret = os.environ['Token']
-
 
 
 @bot.event
@@ -20,6 +22,35 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=discord.Game('Having A Midlife Crisis...'))
 
 
+
+#join_message
+@bot.event
+async def on_member_join(member):
+  guild_id = member.guild.id
+  av = member.avatar_url
+  if guild_id == 842401531171962911:
+    channel = bot.get_channel(842407125329903616)
+    e = discord.Embed(color = discord.Color.green())
+    e.set_thumbnail(url=av)
+    e.add_field(name="Welcome!!", value=f"Welcome to the server {member.mention}!! Hope you have a good time! If you need any help regarding discord, please contact and admins or mods. If you need any help regarding questions, don't hesitate to ask in the doubt channels . And at last, please check self-roles at <#842413732167811152>")
+    await channel.send(embed=e)
+  else:
+    print('Currently Thinking.')
+
+
+#server_leave
+@bot.event
+async def on_member_remove(member):
+  guild_id = member.guild.id
+  if guild_id == 842401531171962911:
+    channel = bot.get_channel(842607234160525334)
+    e = discord.Embed(color = discord.Colour.red())
+    e.set_thumbnail(url=member.avatar_url)
+    e.add_field(name="Member Left", value = f"{member} Has left the server.")
+    await channel.send(embed=e)
+  else:
+    print("Currently thinking.")
+    
 #help
 @bot.command(pass_context=True)
 async def help(ctx):
