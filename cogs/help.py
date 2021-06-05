@@ -20,7 +20,7 @@ class Help(commands.Cog):
         if category == None:
           embed = discord.Embed(
             colour=discord.Colour.orange(),
-            title="Help Commands for Study Café Bot",
+            title="Help Commands for Hydra Bot",
             url = "https://docs.google.com/document/d/1p1FBEqOhmvIu4otkF2YuqD_mdAnekWctFBq07UjKxbc/edit?usp=sharing"
           )
 
@@ -35,7 +35,7 @@ class Help(commands.Cog):
         if category == "moderation":
           embed = discord.Embed(
           colour=discord.Colour.orange(),
-          title="Moderation Commands for Study Café Bot",
+          title="Moderation Commands for Hydra Bot",
           url = "https://docs.google.com/document/d/1p1FBEqOhmvIu4otkF2YuqD_mdAnekWctFBq07UjKxbc/edit?usp=sharing"
            )
           embed.add_field(name="Moderation", value = "Kick - Kicks a member\n`$kick [member] {reason}`\n\nBan - Bans a member\n`$ban [member] {reason}`\n\nUnban - Unbans a member\n`$unban [member]`\n\nPurge - Deletes the given amount of messages\n`$purge {amount}`\n\n Mute - Mutes the given member\n`$mute [member] {reason}`", inline = False)
@@ -44,7 +44,7 @@ class Help(commands.Cog):
         elif category == "entertainment":
           embed = discord.Embed(
             colour=discord.Colour.orange(),
-            title="Entertainment Commands for Study Café Bot",
+            title="Entertainment Commands for Hydra Bot",
             url = "https://docs.google.com/document/d/1p1FBEqOhmvIu4otkF2YuqD_mdAnekWctFBq07UjKxbc/edit?usp=sharing"
            )
           embed.add_field(name="Entertainment", value = "8Ball - Tells whether the question you asked is true or false.\n`8b [question]`\n\nAvatar - Displays the avatar of a user\n`avatar {member}`", inline = False)
