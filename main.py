@@ -57,27 +57,6 @@ async def on_member_remove(member):
     print("Currently thinking.")
 
 
-#help
-@bot.command(pass_context=True)
-async def help(ctx):
-  author = ctx.message.author
-  embed = discord.Embed(
-    colour=discord.Colour.orange(),
-    title="Help Commands for Study Café Bot",
-    url = "https://docs.google.com/document/d/1p1FBEqOhmvIu4otkF2YuqD_mdAnekWctFBq07UjKxbc/edit?usp=sharing"
-  )
-
-  embed.set_author(name="doughnut#3968", url="https://discord.gg/8tcHNurFjp", icon_url="https://sites.google.com/site/12untitled7/_/rsrc/1298297964945/home/sasori/Sasori.jpg")
-  embed.set_thumbnail(url="https://i.gifer.com/VR0F.gif")
-  embed.add_field(name="Entertainment\n ",
-                  value="8Ball - Tells whether the question you asked is true or false.\n8b {question}", inline = False )
-  embed.add_field(name="Moderation\n",
-                  value="Kick - Kicks a member\nkick {member} [reason]\n\nBan - Bans a member\nban {member} [reason]\n\nUnban - Unbans a member\nunban {member} [reason]\n\nPurge - Deletes the given amount of messages\npurge {amount}\n\n Mute - Mutes the given member\nmute {member} {reason}", inline = False)
-  embed.set_footer(text = '----------------------------------------------------------------------------------------------\nThe bot is currently under development and more commands will be added soon!\n[] - Reqired Arguments   &   {} - Optional Arguments\n')
-
-  await author.send(embed=embed)
-  await ctx.send("A message has been DM'd to you with the information!")
-
 
 
 #NoCommandError
