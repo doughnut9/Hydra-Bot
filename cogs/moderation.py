@@ -28,11 +28,11 @@ class Moderation(commands.Cog):
 
         for channel in guild.channels:
             await channel.set_permissions(mutedRole, speak=False, send_messages=False, read_message_history=True, read_messages=True)
-    embed = discord.Embed(title="muted", description=f"{member.mention} was muted ", colour=discord.Colour.light_gray())
+    embed = discord.Embed(title="Muted", description=f"{member.mention} was muted ", colour=discord.Colour.red())
     embed.add_field(name="reason:", value=reason, inline=False)
     await ctx.send(embed=embed)
     await member.add_roles(mutedRole, reason=reason)
-    await member.send(f" you have been muted from: {guild.name} reason: {reason}")
+    await member.send(f" You have been muted from: {guild.name} reason: {reason}")
 
 
 
@@ -40,8 +40,12 @@ class Moderation(commands.Cog):
   @bot.command(aliases=["b"])
   @commands.has_permissions(ban_members=True)
   async def ban(self, ctx, member : discord.Member, *, reason=None):
+    guild = ctx.guild
     await member.ban(reason=reason)
-    await ctx.send(str(member) + " has been banned. \n" + "Reason - " + str(reason) )
+    embed = discord.Embed(title="Banned", description=f"{member.mention} was banned.", colour=discord.Colour.red())
+    embed.add_field(name="reason:", value=reason, inline=False)
+    await ctx.send(embed=embed)
+    await member.send(f" You have been banned from: {guild.name} reason: {reason}")
 
   @ban.error
   async def ban_error(self, ctx, error):
@@ -75,8 +79,12 @@ class Moderation(commands.Cog):
   @bot.command(aliases=["k"])
   @commands.has_permissions(kick_members=True)
   async def kick(self, ctx, member : discord.Member, *, reason=None):
+    guild =ctx.guild
     await member.kick(reason=reason)
-    await ctx.send(str(member) + " has been kicked. \n" + "Reason - " + str(reason) )
+    embed = discord.Embed(title="Kicked", description=f"{member.mention} was kicked.", colour=discord.Colour.red())
+    embed.add_field(name="reason:", value=reason, inline=False)
+    await ctx.send(embed=embed)
+    await member.send(f" You have been kicked from: {guild.name} reason: {reason}")
 
   @kick.error
   async def kick_error(self, ctx, error):
