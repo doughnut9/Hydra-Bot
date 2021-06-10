@@ -47,7 +47,7 @@ class Help(commands.Cog):
             title="Entertainment Commands for Hydra Bot",
             url = "https://docs.google.com/document/d/1p1FBEqOhmvIu4otkF2YuqD_mdAnekWctFBq07UjKxbc/edit?usp=sharing"
            )
-          embed.add_field(name="Entertainment", value = "8Ball - Tells whether the question you asked is true or false.\n`8b [question]`\n\nAvatar - Displays the avatar of a user\n`avatar {member}`", inline = False)
+          embed.add_field(name="Entertainment", value = "8Ball - Tells whether the question you asked is true or false.\n`8b [question]`\n\nAvatar - Displays the avatar of a user\n`>avatar [member]`\n(If no member is provided, it will display the avatar of the user who used the command.", inline = False)
           embed.set_footer(text = '----------------------------------------------------------------------------------------------\nThe bot is currently under development and more commands will be added soon!\n[] - Reqired Arguments   &   {} - Optional Arguments\n')
       
         await ctx.send(embed=embed)
