@@ -4,7 +4,7 @@ from discord.ext import commands, tasks
 
 
 
-bot = commands.Bot(command_prefix="$")
+bot = commands.Bot(command_prefix=">")
 
 
 
@@ -26,9 +26,9 @@ class Help(commands.Cog):
 
           embed.set_author(name="doughnut#3968", url="https://discord.gg/8tcHNurFjp", icon_url="https://sites.google.com/site/12untitled7/_/rsrc/1298297964945/home/sasori/Sasori.jpg")
           embed.set_thumbnail(url="https://i.gifer.com/VR0F.gif")
-          embed.add_field(name="Moderation", value = "Moderation Commands, `$help moderation`", inline = False)
-          embed.add_field(name="Entertainment", value = "Entertainment Commands, `$help entertainment`", inline = False)
-          embed.add_field(name="Ping", value = "Displays the latency of the bot - `$ping`", inline = False)
+          embed.add_field(name="Moderation", value = "Moderation Commands, `>help moderation`", inline = False)
+          embed.add_field(name="Entertainment", value = "Entertainment Commands, `>help entertainment`", inline = False)
+          embed.add_field(name="Ping", value = "Displays the latency of the bot - `>ping`", inline = False)
           embed.add_field(name="Misc", value = "More features coming soon.", inline = True)
           embed.set_footer(text = '----------------------------------------------------------------------------------------------\nThe bot is currently under development and more commands will be added soon!\n[] - Reqired Arguments   &   {} - Optional Arguments\n')
 
@@ -38,7 +38,7 @@ class Help(commands.Cog):
           title="Moderation Commands for Hydra Bot",
           url = "https://docs.google.com/document/d/1p1FBEqOhmvIu4otkF2YuqD_mdAnekWctFBq07UjKxbc/edit?usp=sharing"
            )
-          embed.add_field(name="Moderation", value = "Kick - Kicks a member\n`$kick [member] {reason}`\n\nBan - Bans a member\n`$ban [member] {reason}`\n\nUnban - Unbans a member\n`$unban [member]`\n\nPurge - Deletes the given amount of messages\n`$purge {amount}`\n\n Mute - Mutes the given member\n`$mute [member] {reason}`", inline = False)
+          embed.add_field(name="Moderation", value = "Kick - Kicks a member\n`>kick [member] {reason}`\n\nBan - Bans a member\n`>ban [member] {reason}`\n\nUnban - Unbans a member\n`>unban [member]`\n\nPurge - Deletes the given amount of messages\n`>purge {amount}`\n\n Mute - Mutes the given member\n`>mute [member] {reason}`\n\n>Prefix - Changes the prefix of the server.\n`>prefix [new prefix]`", inline = False)
           embed.set_footer(text = '----------------------------------------------------------------------------------------------\nThe bot is currently under development and more commands will be added soon!\n[] - Reqired Arguments   &   {} - Optional Arguments\n')
 
         elif category == "entertainment":

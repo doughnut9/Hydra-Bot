@@ -7,7 +7,7 @@ from discord.ext.commands import MissingPermissions
 
 
 
-bot = commands.Bot(command_prefix="$")
+bot = commands.Bot(command_prefix=">")
 
 
 
@@ -108,6 +108,7 @@ class Moderation(commands.Cog):
       await ctx.send('Please mention the user to be unbanned.')
     if isinstance (error, commands.MissingPermissions):
       await ctx.send('Aha comrade, that one is not for you.')
+
 
 
 

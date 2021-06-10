@@ -6,6 +6,7 @@ from discord.ext.commands import CheckFailure
 from discord.ext.commands import MissingPermissions
 import random
 from alive import alive
+import json
 
 
 
@@ -14,9 +15,63 @@ intents.members = True
 
 
 
-bot = commands.Bot(command_prefix="$", intents=intents)
+def get_prefix(client, message):
+  with open ("prefixes.json", "r") as f:
+    prefixes = json.load(f)
+
+  return prefixes[str(message.guild.id)]
+
+
+
+bot = commands.Bot(command_prefix=get_prefix, intents=intents)
 bot.remove_command('help')
 my_secret = os.environ['Token']
+
+
+
+@bot.event
+async def on_guild_join(guild):
+  with open ("prefixes.json", "r") as f:
+    prefixes = json.load(f)
+
+  prefixes[str(guild.id)] = ">"
+
+  with open("prefixes.json", "w") as f:
+    json.dump(prefixes, f, indent = 4)
+
+
+
+@bot.event
+async def on_guild_remove(guild):
+  with open ("prefixes.json", "r") as f:
+    prefixes = json.load(f)
+
+  prefixes.pop(str(guild.id))
+
+  with open("prefixes.json", "w") as f:
+    json.dump(prefixes, f, indent = 4)
+
+
+
+#ChangePrefix
+@bot.command()
+@commands.has_permissions(manage_messages=True)
+async def prefix(ctx, prefix):
+  with open ("prefixes.json", "r") as f:
+    prefixes = json.load(f)
+
+  prefixes[str(ctx.guild.id)] = prefix
+  await ctx.send("The prefix has been changed to: "+ prefix)
+
+  with open("prefixes.json", "w") as f:
+    json.dump(prefixes, f, indent = 4)
+
+@prefix.error
+async def prefix_error(ctx, error):
+  if isinstance (error, commands.MissingRequiredArgument):
+    await ctx.send('Please enter a prefix.')
+  if isinstance (error, commands.MissingPermissions):
+    await ctx.send('Aha comrade, that one is not for you.')
 
 
 
