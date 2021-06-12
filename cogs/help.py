@@ -24,7 +24,7 @@ class Help(commands.Cog):
             url = "https://docs.google.com/document/d/1p1FBEqOhmvIu4otkF2YuqD_mdAnekWctFBq07UjKxbc/edit?usp=sharing"
           )
 
-          embed.set_author(name="doughnut#3968", url="https://discord.gg/8tcHNurFjp", icon_url="https://sites.google.com/site/12untitled7/_/rsrc/1298297964945/home/sasori/Sasori.jpg")
+          embed.set_author(name="doughnut#0001", url="https://discord.gg/8tcHNurFjp", icon_url="https://sites.google.com/site/12untitled7/_/rsrc/1298297964945/home/sasori/Sasori.jpg")
           embed.set_thumbnail(url="https://i.gifer.com/VR0F.gif")
           embed.add_field(name="Moderation", value = "Moderation Commands, `>help moderation`", inline = False)
           embed.add_field(name="Entertainment", value = "Entertainment Commands, `>help entertainment`", inline = False)
