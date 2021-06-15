@@ -88,7 +88,7 @@ async def on_member_join(member):
   guild_id = member.guild.id
   av = member.avatar_url
   if guild_id == 842401531171962911:
-    channel = bot.get_channel(842407125329903616)
+    channel = bot.get_channel(853879745263566898)
     e = discord.Embed(color = discord.Color.green())
     e.set_thumbnail(url=av)
     e.add_field(name="Welcome!!", value=f"Welcome to the server {member.mention}!! Hope you have a good time! If you need any help regarding discord, please contact and admins or mods. If you need any help regarding questions, don't hesitate to ask in the doubt channels . And at last, please check self-roles at <#842413732167811152>")
