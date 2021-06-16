@@ -38,7 +38,7 @@ class Help(commands.Cog):
           title="Moderation Commands for Hydra Bot",
           url = "https://docs.google.com/document/d/1p1FBEqOhmvIu4otkF2YuqD_mdAnekWctFBq07UjKxbc/edit?usp=sharing"
            )
-          embed.add_field(name="Moderation", value = "Kick - Kicks a member\n`>kick [member] {reason}`\n\nBan - Bans a member\n`>ban [member] {reason}`\n\nUnban - Unbans a member\n`>unban [member]`\n\nPurge - Deletes the given amount of messages\n`>purge {amount}`\n\n Mute - Mutes the given member\n`>mute [member] {reason}`\n\n>Prefix - Changes the prefix of the server.\n`>prefix [new prefix]`", inline = False)
+          embed.add_field(name="Moderation", value = "Kick - Kicks a member\n`>kick [member] {reason}`\n\nBan - Bans a member\n`>ban [member] {reason}`\n\nUnban - Unbans a member\n`>unban [member]`\n\nPurge - Deletes the given amount of messages\n`>purge {amount}`\n\n Mute - Mutes the given member\n`>mute [member] {reason}`\n\nUnmute - Unmutes the given member\n`>unmute [member]`\n\nPrefix - Changes the prefix of the server.\n`>prefix [new prefix]`", inline = False)
           embed.set_footer(text = '----------------------------------------------------------------------------------------------\nThe bot is currently under development and more commands will be added soon!\n[] - Reqired Arguments   &   {} - Optional Arguments\n')
 
         elif category == "entertainment":
