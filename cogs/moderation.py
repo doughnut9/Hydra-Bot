@@ -29,10 +29,22 @@ class Moderation(commands.Cog):
         for channel in guild.channels:
             await channel.set_permissions(mutedRole, speak=False, send_messages=False, read_message_history=True, read_messages=True)
     embed = discord.Embed(title="Muted", description=f"{member.mention} was muted ", colour=discord.Colour.red())
-    embed.add_field(name="reason:", value=reason, inline=False)
+    embed.add_field(name="Reason:", value=reason, inline=False)
     await ctx.send(embed=embed)
     await member.add_roles(mutedRole, reason=reason)
-    await member.send(f" You have been muted from: {guild.name} reason: {reason}")
+    await member.send(f" You have been muted From: {guild.name}\nReason: {reason}")
+
+
+
+  #Unmute
+  @bot.command()
+  @commands.has_permissions(manage_messages=True)
+  async def unmute(self, ctx, member: discord.Member):
+    guild = ctx.guild
+    mutedRole = discord.utils.get(guild.roles, name="Muted")
+    await member.remove_roles(mutedRole)
+    embed = discord.Embed(title=f"Unmuted {member}", colour=discord.Colour.green())
+    await ctx.send(embed=embed)
 
 
 
