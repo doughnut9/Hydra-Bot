@@ -34,6 +34,13 @@ class Moderation(commands.Cog):
     await member.add_roles(mutedRole, reason=reason)
     await member.send(f" You have been muted From: {guild.name}\nReason: {reason}")
 
+  @mute.error
+  async def mute_error(self, ctx, error):
+    if isinstance (error, commands.MissingRequiredArgument):
+      await ctx.send('Please mention the user to be muted.')
+    if isinstance (error, commands.MissingPermissions):
+      await ctx.send('Aha comrade, that one is not for you.')
+
 
 
   #Unmute
@@ -45,6 +52,13 @@ class Moderation(commands.Cog):
     await member.remove_roles(mutedRole)
     embed = discord.Embed(title=f"Unmuted {member}", colour=discord.Colour.green())
     await ctx.send(embed=embed)
+
+  @unmute.error
+  async def unmute_error(self, ctx, error):
+    if isinstance (error, commands.MissingRequiredArgument):
+      await ctx.send('Please mention the user to be unmuted.')
+    if isinstance (error, commands.MissingPermissions):
+      await ctx.send('Aha comrade, that one is not for you.')
 
 
 
