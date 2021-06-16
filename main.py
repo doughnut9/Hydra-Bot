@@ -176,6 +176,15 @@ async def ping(ctx):
 
 
 
+#GitHub
+@bot.command()
+async def github(ctx):
+  embed = discord.Embed(title="GitHub Repo Link", color=discord.Colour.orange())
+  embed.add_field(name="Hydra Bot", value="https://github.com/doughnut9/Discord-Multipurpose-Bot" )
+  await ctx.send(embed=embed)
+
+
+
 for filename in os.listdir('./cogs'):
   if filename.endswith('.py'):
     bot.load_extension(f'cogs.{filename[:-3]}')
